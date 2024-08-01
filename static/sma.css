@@ -1,0 +1,192 @@
+.chat-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 15px;
+}
+
+.message .user {
+    font-weight: bold;
+}
+
+.message .time {
+    font-size: 12px;
+    color: #888;
+}
+
+.incoming-message {
+    background-color: #f2f2f2;
+}
+
+.outgoing-message {
+    background-color: #d9edf7;
+}
+
+
+
+
+
+.info-text {
+    display: none;
+    position: absolute;
+    bottom: 80px; /* Adjust this value to control the gap between info text and input form */
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1001; /* Make sure it appears above other content */
+}
+.message-input {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* ボタンの配置を固定 */
+}
+
+@media (max-width: 576px) {
+    .message-input {
+        width: 100%;
+        padding: 10px;
+        flex-wrap: nowrap; /* ボタンの配置を固定 */
+    }
+}
+
+.btn-info,
+.btn-file,
+.btn-chat,
+.btn-record {
+    color: white;
+    border: none;
+    margin-top: auto 0;
+    margin-left: 5px;
+    border-radius: 20%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info{
+    background-color: #2d7e19;
+    margin-right: 5px;
+}
+
+.btn-file {
+    background-color: #0f42af;
+}
+
+#add_file:hover {
+    background-color: #21af8c;
+}
+
+.btn-chat {
+    background-color: #bec73d;
+    width: 100px;
+}
+
+.btn-record {
+    background-color: rgb(101, 108, 114);
+}
+
+
+
+@media (max-width: 576px) {
+    .btn-info{
+        font-size: 15px;
+        margin-left: 3px;
+        width: 30px;
+        height: 40px;
+    }
+    
+    .btn-chat {
+        font-size: 15px;
+        margin-left: 3px;
+        width: 30px;
+        height: 40px;
+    }
+    
+    .btn-record {
+        font-size: 15px;
+        margin-left: 3px;
+        width: 30px;
+        height: 40px;
+    }
+    
+    .btn-file {
+        font-size: 15px;
+        margin-left: 3px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Object change animation*/
+.animated {
+    transition: transform 0.3s ease;
+}
+
+textarea {
+    overflow-y: hidden;
+    resize: none;
+    max-height: 200px; /* 上限の高さを設定 */
+}
+
+textarea#message {
+    background-color: #d0ffdf; /* Change this to your desired color */
+    border: none;
+}
+
+.btn:focus,
+.original-btn:focus,
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+/*　キューブのアニメーション　*/
+#wrapper {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 30px auto;
+}
+
+#anime_test {
+    height: 100px;
+    width: 100px;
+    background-color: #366cf4;
+    position: relative;
+    left: 25px;
+    /* Cut the movement width in half */
+    transition: 2.5s;
+    border-radius: 1.5rem;
+}
+
+#anime_test.active {
+    background-color: #0435b0;
+    left: calc(100% - 75px);
+    border-radius: 3.5rem;
+}
