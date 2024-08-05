@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template, redirect
 import task_agent
+#自作モジュール
 import gemini_image
 
 app = Flask(__name__)
