@@ -20,6 +20,11 @@ $(function () {
 
         var formData = new FormData(this);
 
+        //Delete form data
+        $('#message').val('');
+        $('#image_file').val('');
+        $('#message').css('height', 'auto'); 
+
         //Check PDF file exist
         if (pdfFile) {
             $('#messages').append("<div class='message outgoing-message'><div class='user'>You</div><div class='text'>" + message + " + ( <i class='bi bi-card-image'></i> " + pdfFile.name + " )" + '</div></div>');
@@ -38,7 +43,7 @@ $(function () {
 
             "<div class='spinner-container'>\
                 <div class='spinner-grow text-success' role='status'>\
-                    <span class='visually-hidden'Loading...</span>\
+                    <span class='visually-hidden'>Loading...</span>\
                     </div></div>"+
             '</div>\
         </div>');
@@ -50,10 +55,12 @@ $(function () {
             data: formData, // Submit form data
             processData: false, // Set to not process data
             contentType: false, // Set content type to not set
+
             success: function (data) {
-                // Delete form data
+                /*Delete form data
                 $('#message').val('');
                 $('#image_file').val('');
+                $('#message').css('height', 'auto'); */
                 $('.spinner-container:last').remove();
                 $('.agent-message:last').append(data.response);
 
@@ -171,6 +178,7 @@ $(function () {
     });
 });
 
+
 //Animation
 function clickTest() {
     target = document.getElementById("anime_test");
@@ -262,8 +270,17 @@ function setInputText(text) {
 //////////////////////////////////////////////////
 
 $(document).ready(function () {
-    $("#information").click(function () {
-        $("#infoText").toggle(); // Show/hide text
+    $("#information").click(function (event) {
+        $("#infoText").toggle();
+        event.stopPropagation(); // クリックイベントをバブルアップしない
+    });
+
+    $(document).click(function () {
+        $("#infoText").hide();
+    });
+
+    $("#infoText").click(function (event) {
+        event.stopPropagation(); // infoText自体をクリックしたときは非表示にしない
     });
 });
 
