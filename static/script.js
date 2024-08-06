@@ -6,6 +6,14 @@ function checkFileSize(input) {
     }
 }
 
+// Shift + Enterでも送信
+$(document).on('keydown', function (e) {
+    if (e.key === 'Enter' && e.shiftKey) {
+        e.preventDefault(); // Prevent default newline behavior
+        $('#chat-form').submit(); // Trigger form submission
+    }
+});
+
 $(function () {
     $('#chat-form').on('submit', function (e) {
         e.preventDefault();
@@ -84,7 +92,7 @@ $(function () {
                 }
 
                 else if (data.data_dic['word_file'] !== "") {
-                    var file_path = "<a href='/static/sample.docx' download='filename.docx'>Download<i class='bi bi-download'></i></a>";
+                    var file_path = "<a href='./static/sample.docx' download='filename.docx'>Download<i class='bi bi-download'></i></a>";
 
                     // Get the last .agent-message element
                     var agentMessages = document.querySelectorAll('.agent-message');
