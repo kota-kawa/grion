@@ -3,15 +3,11 @@ from flask import Blueprint, render_template, redirect, request, jsonify, sessio
 from scipy.spatial.distance import cosine
 import spacy
 from docx import Document
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import nltk
 from nltk.corpus import stopwords
-
-#from dotenv import load_dotenv
 import google.generativeai as genai
-
 from dotenv import load_dotenv
 import os
 
