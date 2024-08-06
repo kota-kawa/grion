@@ -92,7 +92,7 @@ $(function () {
                 }
 
                 else if (data.data_dic['word_file'] !== "") {
-                    var file_path = "<a href='./static/sample.docx' download='filename.docx'>Download<i class='bi bi-download'></i></a>";
+                    var file_path = "<a href='/static/sample.docx' download='filename.docx'>Download<i class='bi bi-download'></i></a>";
 
                     // Get the last .agent-message element
                     var agentMessages = document.querySelectorAll('.agent-message');

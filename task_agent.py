@@ -335,7 +335,7 @@ def task9(most_similar_task):
     # Add paragraph
     document.add_paragraph(output.text)
     # Save file
-    document.save('/var/www/sub_app/static/sample.docx')
+    document.save('/var/www/grion/static/sample.docx')
     data_dic["word_file"] = updated_task
     return response, data_dic
 
