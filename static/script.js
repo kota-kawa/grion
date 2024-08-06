@@ -295,6 +295,6 @@ document.addEventListener('DOMContentLoaded', function () {
     messageInput.addEventListener('input', function () {
         this.style.height = 'auto';
         this.style.height = Math.min(this.scrollHeight, 200) + 'px'; // 最大高さを200pxに設定
-        window.scrollTo(0, document.body.scrollHeight); // 下にスクロール
+        //window.scrollTo(0, document.body.scrollHeight);  下にスクロール
     });
 });
