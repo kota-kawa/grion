@@ -4,11 +4,11 @@ import PIL.Image
 from dotenv import load_dotenv
 import os
 
-# 環境変数の値を取得
-gemini_api_key = os.getenv("Gemini_API_KEY")
-
 #.envファイルの読み込み
 load_dotenv()
+
+# 環境変数の値を取得
+gemini_api_key = os.getenv("Gemini_API_KEY")
 
 genai.configure(api_key=gemini_api_key)
 # モデルを選択
