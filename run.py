@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def chat():
-    return render_template('chat_sma.html')
+    return render_template('chat.html')
 
 @app.route('/post', methods=['POST'])
 def post():
