@@ -12,7 +12,7 @@ gemini_api_key = os.getenv("Gemini_API_KEY")
 
 genai.configure(api_key=gemini_api_key)
 # モデルを選択
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-2.0-flash')
 
 
 def chain_main(prompt, image_file):
