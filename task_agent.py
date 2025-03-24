@@ -16,10 +16,14 @@ load_dotenv()
 
 # 環境変数の値を取得
 gemini_api_key = os.getenv("Gemini_API_KEY")
-
 genai.configure(api_key=gemini_api_key)
 
-model = genai.GenerativeModel("gemini-pro")
+def generate_chat_response(prompt):
+    # モデルインスタンスを作成（モデル名は適宜変更してください）
+    model = genai.GenerativeModel("gemini-2.0-flash")
+    # プロンプトを渡して応答を生成
+    response = model.generate_content(prompt)
+    return response.text
 
 # Download the stopwords
 nltk.download('stopwords')
@@ -320,17 +324,13 @@ def task9(most_similar_task):
     prompt = "Please tell me about" + updated_task
 
     # チャット履歴を初期化
-    chat = model.start_chat(history=[])
-    output = chat.send_message(prompt)
-    print(output.text)
-
-    # Create a new Document object
+    output_text = generate_chat_response(prompt)
+    print(output_text)
+    
+    # （以降、Wordファイル生成処理など）
     document = Document()
-    # Add title
     document.add_heading(updated_task, level=1)
-    # Add paragraph
-    document.add_paragraph(output.text)
-    # Save file
+    document.add_paragraph(output_text)
     document.save('/var/www/grion/static/sample.docx')
     data_dic["word_file"] = updated_task
     return response, data_dic
@@ -374,8 +374,8 @@ def main_agent(message):
     else:
         prompt = task_to_compare
         # チャット履歴を初期化
-        chat = model.start_chat(history=[])
-        output = chat.send_message(prompt)
+        prompt = task_to_compare
+        output_text = generate_chat_response(prompt)
         print("類似度が50%を超えるタスクはありません。")
-        print(output.text)
-        return output.text, None
+        print(output_text)
+        return output_text, None
